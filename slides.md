@@ -12,98 +12,126 @@ drawings:
 css: unocss
 style: |
   .slidev-layout {
-    padding: 1.5rem !important;
+    padding: 2rem !important;
   }
 
   .slidev-page {
-    padding: 1rem !important;
+    padding: 1.5rem !important;
   }
 
   h1, h2, h3 {
-    margin-bottom: 0.75rem !important;
+    margin-bottom: 1rem !important;
   }
 
   .grid {
-    gap: 0.75rem !important;
+    gap: 1rem !important;
   }
 
   ul, ol {
-    margin: 0.25rem 0 !important;
+    margin: 0.5rem 0 !important;
   }
 
   .text-xs {
-    font-size: 0.7rem !important;
-    line-height: 1.2 !important;
-  }
-
-  .text-sm {
-    font-size: 0.8rem !important;
+    font-size: 0.75rem !important;
     line-height: 1.3 !important;
   }
 
+  .text-sm {
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+  }
+
   pre {
-    margin: 0.5rem 0 !important;
-    font-size: 0.75rem !important;
+    margin: 0.75rem 0 !important;
+    font-size: 0.8rem !important;
   }
 
   table {
-    font-size: 0.75rem !important;
-    margin: 0.5rem 0 !important;
+    font-size: 0.8rem !important;
+    margin: 0.75rem 0 !important;
   }
 
   .p-3 {
-    padding: 0.5rem !important;
+    padding: 0.75rem !important;
   }
 
   .mt-4, .mt-6 {
-    margin-top: 0.75rem !important;
+    margin-top: 1rem !important;
   }
 
   .space-y-4 > * + * {
-    margin-top: 0.5rem !important;
+    margin-top: 0.75rem !important;
   }
 
   .space-y-1 > * + * {
-    margin-top: 0.2rem !important;
+    margin-top: 0.25rem !important;
   }
 
   .space-y-3 > * + * {
-    margin-top: 0.5rem !important;
+    margin-top: 0.75rem !important;
   }
 
   .compact-grid {
-    gap: 0.5rem !important;
+    gap: 0.75rem !important;
   }
 
   .compact-text {
-    font-size: 0.7rem !important;
-    line-height: 1.1 !important;
+    font-size: 0.75rem !important;
+    line-height: 1.2 !important;
   }
 
   .ultra-compact {
-    font-size: 0.6rem !important;
-    line-height: 0.9 !important;
-    margin: 0.1rem 0 !important;
-  }
-
-  .compact-card {
-    padding: 0.3rem !important;
+    font-size: 0.7rem !important;
+    line-height: 1.1 !important;
     margin: 0.2rem 0 !important;
   }
 
+  .compact-card {
+    padding: 0.5rem !important;
+    margin: 0.3rem 0 !important;
+  }
+
   .mini-text {
-    font-size: 0.55rem !important;
-    line-height: 0.85 !important;
-    margin: 0.05rem 0 !important;
+    font-size: 0.65rem !important;
+    line-height: 1rem !important;
+    margin: 0.1rem 0 !important;
   }
 
   .tiny-grid {
-    gap: 0.3rem !important;
+    gap: 0.5rem !important;
   }
 
   .micro-card {
-    padding: 0.25rem !important;
-    margin: 0.1rem 0 !important;
+    padding: 0.4rem !important;
+    margin: 0.2rem 0 !important;
+  }
+
+  /* Ensure content doesn't overflow */
+  .slidev-layout .grid {
+    height: auto !important;
+    min-height: auto !important;
+  }
+
+  /* Better spacing for list items */
+  li {
+    margin: 0.2rem 0 !important;
+  }
+
+  /* Ensure code blocks are readable */
+  .shiki {
+    font-size: 0.8rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Better spacing for cards and boxes */
+  .border {
+    margin: 0.5rem 0 !important;
+  }
+
+  /* Ensure tables fit properly */
+  table td, table th {
+    padding: 0.4rem 0.6rem !important;
+    font-size: 0.75rem !important;
   }
 ---
 
@@ -125,7 +153,7 @@ style: |
 
 # The NLP Pipeline: Text Representation Stage
 
-<div class="grid grid-cols-2 gap-3 mt-3">
+<div class="grid grid-cols-2 gap-4 mt-4">
 
 <div>
 
@@ -148,7 +176,7 @@ style: |
 
 </div>
 
-<div class="mt-3 p-2 bg-blue-50 rounded-lg text-sm">
+<div class="mt-4 p-3 bg-blue-50 rounded-lg text-sm">
 <strong>Key Challenge:</strong> How do we represent entire sentences and paragraphs as dense vectors while preserving semantic meaning?
 </div>
 
@@ -156,7 +184,7 @@ style: |
 
 # From Words to Sentences: The Compositional Problem
 
-<div class="mt-1">
+<div class="mt-2">
 
 ## The Challenge of Compositionality
 
@@ -172,27 +200,27 @@ sentence = "The cat sat on the mat"
 simple_avg = average(word_vectors)
 ```
 
-<div class="grid grid-cols-3 gap-1 mt-2 text-xs">
+<div class="grid grid-cols-3 gap-3 mt-4 text-sm">
 
-<div class="p-1 bg-red-50 border border-red-200 rounded">
-<h4 class="text-red-700 font-bold text-xs">Simple Averaging Issues</h4>
-<ul class="mt-1">
+<div class="p-3 bg-red-50 border border-red-200 rounded">
+<h4 class="text-red-700 font-bold text-sm">Simple Averaging Issues</h4>
+<ul class="mt-2">
 <li>Loses word order</li>
 <li>Ignores syntax</li>
 </ul>
 </div>
 
-<div class="p-1 bg-yellow-50 border border-yellow-200 rounded">
-<h4 class="text-yellow-700 font-bold text-xs">Bag of Words</h4>
-<ul class="mt-1">
+<div class="p-3 bg-yellow-50 border border-yellow-200 rounded">
+<h4 class="text-yellow-700 font-bold text-sm">Bag of Words</h4>
+<ul class="mt-2">
 <li>"Dog bites man" ≈ "Man bites dog"</li>
 <li>Same vectors, different meaning</li>
 </ul>
 </div>
 
-<div class="p-1 bg-green-50 border border-green-200 rounded">
-<h4 class="text-green-700 font-bold text-xs">Solution</h4>
-<ul class="mt-1">
+<div class="p-3 bg-green-50 border border-green-200 rounded">
+<h4 class="text-green-700 font-bold text-sm">Solution</h4>
+<ul class="mt-2">
 <li>Preserve semantics</li>
 <li>Consider context</li>
 </ul>
@@ -206,7 +234,7 @@ simple_avg = average(word_vectors)
 
 # What are Sentence Embeddings?
 
-<div class="grid grid-cols-2 gap-3 mt-2">
+<div class="grid grid-cols-2 gap-4 mt-3">
 
 <div>
 
@@ -234,7 +262,7 @@ Vector: [0.23, -0.45, 0.67, ...]
         ∈ ℝᵈ (d = embedding dimension)
 ```
 
-<div class="mt-3 p-2 bg-blue-50 rounded text-sm">
+<div class="mt-4 p-3 bg-blue-50 rounded text-sm">
 <strong>Semantic Similarity:</strong>
 Similar sentences → Similar vectors
 cosine(v₁, v₂) ≈ 1 if sentences are similar
@@ -248,7 +276,7 @@ cosine(v₁, v₂) ≈ 1 if sentences are similar
 
 # Methods for Creating Sentence Embeddings
 
-<div class="grid grid-cols-2 gap-2 mt-2">
+<div class="grid grid-cols-2 gap-4 mt-3">
 
 <div>
 
@@ -298,7 +326,7 @@ embedding = outputs.last_hidden_state[:, 0, :]
 
 # Popular Sentence Embedding Models - Part 1
 
-<div class="grid grid-cols-2 gap-6 mt-6">
+<div class="grid grid-cols-2 gap-4 mt-4">
 
 <div>
 
@@ -336,7 +364,7 @@ embedding = outputs.last_hidden_state[:, 0, :]
 
 # Popular Sentence Embedding Models - Part 2
 
-<div class="grid grid-cols-2 gap-6 mt-6">
+<div class="grid grid-cols-2 gap-4 mt-4">
 
 <div>
 
@@ -389,7 +417,7 @@ Dense vector representations for entire documents or paragraphs that capture sem
 
 </div>
 
-<div class="mt-8">
+<div class="mt-6">
 
 ## Doc2Vec Approaches
 
@@ -429,7 +457,7 @@ P(words | paragraph_id)
 
 # Modern Paragraph Embedding Approaches
 
-<div class="grid grid-cols-2 gap-6 mt-4">
+<div class="grid grid-cols-2 gap-4 mt-3">
 
 <div>
 
@@ -466,7 +494,7 @@ document_vector = aggregate(sentence_attention)
 
 </div>
 
-<div class="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+<div class="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
 <strong>Key Challenge:</strong> Maintaining semantic coherence across long documents while capturing both local details and global structure.
 </div>
 
@@ -474,7 +502,7 @@ document_vector = aggregate(sentence_attention)
 
 # Applications and Use Cases
 
-<div class="grid grid-cols-2 compact-grid mt-1">
+<div class="grid grid-cols-2 gap-4 mt-3">
 
 <div>
 
@@ -533,24 +561,24 @@ print(f"Result: {corpus[top_idx]}")
 
 # Challenges and Limitations
 
-<div class="grid grid-cols-2 compact-grid mt-1">
+<div class="grid grid-cols-2 gap-4 mt-3">
 
-<div class="space-y-2">
+<div class="space-y-3">
 
 ## Technical Challenges
 
-<div class="p-2 bg-red-50 border border-red-200 rounded">
-<h4 class="font-bold text-red-700 text-xs">Computational Complexity</h4>
-<ul class="ultra-compact mt-1">
+<div class="p-3 bg-red-50 border border-red-200 rounded">
+<h4 class="font-bold text-red-700 text-sm">Computational Complexity</h4>
+<ul class="mt-2 text-sm">
 <li>Quadratic attention complexity O(n²)</li>
 <li>Memory requirements</li>
 <li>Training resources</li>
 </ul>
 </div>
 
-<div class="p-2 bg-orange-50 border border-orange-200 rounded">
-<h4 class="font-bold text-orange-700 text-xs">Representation Quality</h4>
-<ul class="ultra-compact mt-1">
+<div class="p-3 bg-orange-50 border border-orange-200 rounded">
+<h4 class="font-bold text-orange-700 text-sm">Representation Quality</h4>
+<ul class="mt-2 text-sm">
 <li>Loss of fine-grained information</li>
 <li>Fixed-size bottleneck</li>
 </ul>
@@ -558,21 +586,21 @@ print(f"Result: {corpus[top_idx]}")
 
 </div>
 
-<div class="space-y-2">
+<div class="space-y-3">
 
 ## Practical Issues
 
-<div class="p-2 bg-blue-50 border border-blue-200 rounded">
-<h4 class="font-bold text-blue-700 text-xs">Domain Adaptation</h4>
-<ul class="ultra-compact mt-1">
+<div class="p-3 bg-blue-50 border border-blue-200 rounded">
+<h4 class="font-bold text-blue-700 text-sm">Domain Adaptation</h4>
+<ul class="mt-2 text-sm">
 <li>General models vs. domain-specific</li>
 <li>Transfer learning challenges</li>
 </ul>
 </div>
 
-<div class="p-2 bg-purple-50 border border-purple-200 rounded">
-<h4 class="font-bold text-purple-700 text-xs">Evaluation Metrics</h4>
-<ul class="ultra-compact mt-1">
+<div class="p-3 bg-purple-50 border border-purple-200 rounded">
+<h4 class="font-bold text-purple-700 text-sm">Evaluation Metrics</h4>
+<ul class="mt-2 text-sm">
 <li>Semantic Textual Similarity (STS)</li>
 <li>Downstream task performance</li>
 </ul>
@@ -582,7 +610,7 @@ print(f"Result: {corpus[top_idx]}")
 
 </div>
 
-<div class="mt-2 compact-card bg-gray-50 rounded-lg text-center compact-text">
+<div class="mt-4 p-3 bg-gray-50 rounded-lg text-center text-sm">
 <strong>Key Trade-off:</strong> Expressiveness vs. Efficiency vs. Generalizability
 </div>
 
