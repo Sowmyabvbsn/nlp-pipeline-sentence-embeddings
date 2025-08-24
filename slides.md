@@ -1,7 +1,7 @@
 ---
 theme: seriph
 background: https://images.pexels.com/photos/6550258/pexels-photo-6550258.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080
-class: 'text-center'
+class: 'text-center p-4'
 highlighter: shiki
 lineNumbers: false
 info: |
@@ -10,6 +10,101 @@ info: |
 drawings:
   persist: false
 css: unocss
+style: |
+  .slidev-layout {
+    padding: 1.5rem !important;
+  }
+
+  .slidev-page {
+    padding: 1rem !important;
+  }
+
+  h1, h2, h3 {
+    margin-bottom: 0.75rem !important;
+  }
+
+  .grid {
+    gap: 0.75rem !important;
+  }
+
+  ul, ol {
+    margin: 0.25rem 0 !important;
+  }
+
+  .text-xs {
+    font-size: 0.7rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .text-sm {
+    font-size: 0.8rem !important;
+    line-height: 1.3 !important;
+  }
+
+  pre {
+    margin: 0.5rem 0 !important;
+    font-size: 0.75rem !important;
+  }
+
+  table {
+    font-size: 0.75rem !important;
+    margin: 0.5rem 0 !important;
+  }
+
+  .p-3 {
+    padding: 0.5rem !important;
+  }
+
+  .mt-4, .mt-6 {
+    margin-top: 0.75rem !important;
+  }
+
+  .space-y-4 > * + * {
+    margin-top: 0.5rem !important;
+  }
+
+  .space-y-1 > * + * {
+    margin-top: 0.2rem !important;
+  }
+
+  .space-y-3 > * + * {
+    margin-top: 0.5rem !important;
+  }
+
+  .compact-grid {
+    gap: 0.5rem !important;
+  }
+
+  .compact-text {
+    font-size: 0.7rem !important;
+    line-height: 1.1 !important;
+  }
+
+  .ultra-compact {
+    font-size: 0.6rem !important;
+    line-height: 0.9 !important;
+    margin: 0.1rem 0 !important;
+  }
+
+  .compact-card {
+    padding: 0.3rem !important;
+    margin: 0.2rem 0 !important;
+  }
+
+  .mini-text {
+    font-size: 0.55rem !important;
+    line-height: 0.85 !important;
+    margin: 0.05rem 0 !important;
+  }
+
+  .tiny-grid {
+    gap: 0.3rem !important;
+  }
+
+  .micro-card {
+    padding: 0.25rem !important;
+    margin: 0.1rem 0 !important;
+  }
 ---
 
 # Distributed Representations Beyond Words and Characters
@@ -30,7 +125,7 @@ css: unocss
 
 # The NLP Pipeline: Text Representation Stage
 
-<div class="grid grid-cols-2 gap-6 mt-6">
+<div class="grid grid-cols-2 gap-3 mt-3">
 
 <div>
 
@@ -53,7 +148,7 @@ css: unocss
 
 </div>
 
-<div class="mt-6 p-3 bg-blue-50 rounded-lg text-sm">
+<div class="mt-3 p-2 bg-blue-50 rounded-lg text-sm">
 <strong>Key Challenge:</strong> How do we represent entire sentences and paragraphs as dense vectors while preserving semantic meaning?
 </div>
 
@@ -61,7 +156,7 @@ css: unocss
 
 # From Words to Sentences: The Compositional Problem
 
-<div class="mt-4">
+<div class="mt-1">
 
 ## The Challenge of Compositionality
 
@@ -77,26 +172,26 @@ sentence = "The cat sat on the mat"
 simple_avg = average(word_vectors)
 ```
 
-<div class="grid grid-cols-3 gap-3 mt-4 text-xs">
+<div class="grid grid-cols-3 gap-1 mt-2 text-xs">
 
-<div class="p-2 bg-red-50 border border-red-200 rounded">
-<h4 class="text-red-700 font-bold text-sm">Simple Averaging Issues</h4>
+<div class="p-1 bg-red-50 border border-red-200 rounded">
+<h4 class="text-red-700 font-bold text-xs">Simple Averaging Issues</h4>
 <ul class="mt-1">
 <li>Loses word order</li>
 <li>Ignores syntax</li>
 </ul>
 </div>
 
-<div class="p-2 bg-yellow-50 border border-yellow-200 rounded">
-<h4 class="text-yellow-700 font-bold text-sm">Bag of Words</h4>
+<div class="p-1 bg-yellow-50 border border-yellow-200 rounded">
+<h4 class="text-yellow-700 font-bold text-xs">Bag of Words</h4>
 <ul class="mt-1">
 <li>"Dog bites man" ≈ "Man bites dog"</li>
 <li>Same vectors, different meaning</li>
 </ul>
 </div>
 
-<div class="p-2 bg-green-50 border border-green-200 rounded">
-<h4 class="text-green-700 font-bold text-sm">Solution</h4>
+<div class="p-1 bg-green-50 border border-green-200 rounded">
+<h4 class="text-green-700 font-bold text-xs">Solution</h4>
 <ul class="mt-1">
 <li>Preserve semantics</li>
 <li>Consider context</li>
@@ -111,7 +206,7 @@ simple_avg = average(word_vectors)
 
 # What are Sentence Embeddings?
 
-<div class="grid grid-cols-2 gap-6 mt-4">
+<div class="grid grid-cols-2 gap-3 mt-2">
 
 <div>
 
@@ -139,7 +234,7 @@ Vector: [0.23, -0.45, 0.67, ...]
         ∈ ℝᵈ (d = embedding dimension)
 ```
 
-<div class="mt-4 p-3 bg-blue-50 rounded text-sm">
+<div class="mt-3 p-2 bg-blue-50 rounded text-sm">
 <strong>Semantic Similarity:</strong>
 Similar sentences → Similar vectors
 cosine(v₁, v₂) ≈ 1 if sentences are similar
@@ -153,7 +248,7 @@ cosine(v₁, v₂) ≈ 1 if sentences are similar
 
 # Methods for Creating Sentence Embeddings
 
-<div class="grid grid-cols-2 gap-4 mt-4">
+<div class="grid grid-cols-2 gap-2 mt-2">
 
 <div>
 
@@ -201,53 +296,37 @@ embedding = outputs.last_hidden_state[:, 0, :]
 
 ---
 
-# Popular Sentence Embedding Models
+# Popular Sentence Embedding Models - Part 1
 
-<div class="grid grid-cols-3 gap-3 mt-4">
+<div class="grid grid-cols-2 gap-6 mt-6">
 
-<div class="p-3 border border-blue-200 bg-blue-50 rounded-lg">
-<h3 class="text-blue-800 font-bold text-base mb-2">Universal Sentence Encoder</h3>
-<ul class="text-xs space-y-1">
-<li><strong>Google's approach</strong></li>
-<li>Transformer + Deep Averaging Network</li>
-<li>512-dimensional vectors</li>
-<li>Multilingual support</li>
-</ul>
-</div>
+<div>
 
-<div class="p-3 border border-green-200 bg-green-50 rounded-lg">
-<h3 class="text-green-800 font-bold text-base mb-2">Sentence-BERT</h3>
-<ul class="text-xs space-y-1">
-<li><strong>BERT fine-tuned</strong></li>
-<li>Siamese network architecture</li>
-<li>Optimized for similarity</li>
-<li>Fast inference</li>
-</ul>
-</div>
-
-<div class="p-3 border border-purple-200 bg-purple-50 rounded-lg">
-<h3 class="text-purple-800 font-bold text-base mb-2">InferSent</h3>
-<ul class="text-xs space-y-1">
-<li><strong>Facebook's model</strong></li>
-<li>BiLSTM with attention</li>
-<li>Trained on SNLI</li>
-<li>4096-dimensional vectors</li>
+## Universal Sentence Encoder
+<div class="p-4 border border-blue-200 bg-blue-50 rounded-lg">
+<ul class="text-sm space-y-2">
+<li><strong>Developer:</strong> Google Research</li>
+<li><strong>Architecture:</strong> Transformer + Deep Averaging Network</li>
+<li><strong>Dimensions:</strong> 512</li>
+<li><strong>Languages:</strong> Multilingual support</li>
+<li><strong>Strengths:</strong> Fast inference, good general performance</li>
 </ul>
 </div>
 
 </div>
 
-<div class="mt-6">
+<div>
 
-## Performance Comparison
-
-<div class="text-sm">
-
-| Model | Dim | Speed | STS Score | Use Case |
-|-------|-----|-------|-----------|----------|
-| USE | 512 | Fast | 0.78 | General |
-| SBERT | 768 | Very Fast | 0.85 | Similarity |
-| InferSent | 4096 | Moderate | 0.75 | Transfer |
+## Sentence-BERT (SBERT)
+<div class="p-4 border border-green-200 bg-green-50 rounded-lg">
+<ul class="text-sm space-y-2">
+<li><strong>Developer:</strong> UKP Lab</li>
+<li><strong>Architecture:</strong> BERT with Siamese network</li>
+<li><strong>Dimensions:</strong> 768</li>
+<li><strong>Training:</strong> Optimized for similarity tasks</li>
+<li><strong>Strengths:</strong> Very fast inference, excellent similarity</li>
+</ul>
+</div>
 
 </div>
 
@@ -255,69 +334,147 @@ embedding = outputs.last_hidden_state[:, 0, :]
 
 ---
 
-# Paragraph Embeddings: Beyond Sentences
+# Popular Sentence Embedding Models - Part 2
 
-<div class="mt-4">
+<div class="grid grid-cols-2 gap-6 mt-6">
 
-## Paragraph Embeddings (Doc2Vec)
+<div>
+
+## InferSent
+<div class="p-4 border border-purple-200 bg-purple-50 rounded-lg">
+<ul class="text-sm space-y-2">
+<li><strong>Developer:</strong> Facebook Research</li>
+<li><strong>Architecture:</strong> BiLSTM with max pooling</li>
+<li><strong>Dimensions:</strong> 4096</li>
+<li><strong>Training:</strong> Stanford Natural Language Inference</li>
+<li><strong>Strengths:</strong> Good transfer learning performance</li>
+</ul>
+</div>
+
+</div>
+
+<div>
+
+## Performance Comparison
+
+| Model | Dimensions | Speed | STS Score | Best Use Case |
+|-------|------------|-------|-----------|---------------|
+| USE | 512 | Fast | 0.78 | General purpose |
+| SBERT | 768 | Very Fast | 0.85 | Similarity search |
+| InferSent | 4096 | Moderate | 0.75 | Transfer learning |
+
+<div class="mt-4 p-3 bg-gray-50 rounded-lg text-sm">
+<strong>Note:</strong> STS = Semantic Textual Similarity benchmark score
+</div>
+
+</div>
+
+</div>
+
+---
+
+# Paragraph Embeddings - Introduction
+
+<div>
+
+## What are Paragraph Embeddings?
+
+Dense vector representations for entire documents or paragraphs that capture semantic meaning beyond individual sentences.
+
+## Key Characteristics
+- **Variable Length Handling:** Can process documents of any size
+- **Hierarchical Structure:** Captures both local and global context
+- **Semantic Coherence:** Maintains meaning across long text spans
+- **Document-Level Features:** Goes beyond sentence-level understanding
+
+</div>
+
+<div class="mt-8">
+
+## Doc2Vec Approaches
 
 <div class="grid grid-cols-2 gap-4 mt-4">
 
 <div>
 
-### Key Concepts
-- Document-level representations
-- Paragraph Vector (PV-DM, PV-DBOW)
-- Variable-length handling
-- Hierarchical structure
-
 ### PV-DM (Distributed Memory)
-```text
+```python
 # Predict word given context + paragraph vector
 P(word | context_words, paragraph_id)
 ```
+- Uses paragraph vector as additional context
+- Similar to Word2Vec CBOW
+- Better for smaller datasets
+
+</div>
+
+<div>
 
 ### PV-DBOW (Distributed Bag of Words)
-```text
+```python
 # Predict words given paragraph vector
 P(words | paragraph_id)
+```
+- Ignores word order in context
+- Similar to Word2Vec Skip-gram
+- Faster training, good performance
+
+</div>
+
+</div>
+
+</div>
+
+---
+
+# Modern Paragraph Embedding Approaches
+
+<div class="grid grid-cols-2 gap-6 mt-4">
+
+<div>
+
+## Hierarchical Attention Networks
+- **Word-level attention:** Important words in sentences
+- **Sentence-level attention:** Important sentences in documents
+- **Two-stage process:** Word → Sentence → Document
+
+```python
+# Hierarchical attention example
+word_attention = attention(words)
+sentence_vectors = aggregate(word_attention)
+sentence_attention = attention(sentence_vectors)
+document_vector = aggregate(sentence_attention)
 ```
 
 </div>
 
 <div>
 
-### Modern Approaches
+## Transformer-Based Methods
 
-**1. Hierarchical Attention**
-- Sentence → Document attention
-- Word → Sentence attention
+### Long-Sequence Transformers
+- **Longformer:** Sparse attention patterns
+- **BigBird:** Random + global + local attention
+- **LED:** Long document summarization
 
-**2. Transformer-based**
-- Longformer (long sequences)
-- BigBird (sparse attention)
-- Hierarchical BERT
-
-**3. Graph-based Methods**
-- Sentences as nodes
-- Relationships as edges
-- Graph Neural Networks
+### Hierarchical BERT
+- Process documents in chunks
+- Combine chunk representations
+- Maintain global context
 
 </div>
 
 </div>
 
-</div>
-
-<div class="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg text-sm">
-<strong>Challenge:</strong> Maintaining coherence across long documents while capturing local and global dependencies.
+<div class="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+<strong>Key Challenge:</strong> Maintaining semantic coherence across long documents while capturing both local details and global structure.
 </div>
 
 ---
 
 # Applications and Use Cases
 
-<div class="grid grid-cols-2 gap-6 mt-4">
+<div class="grid grid-cols-2 compact-grid mt-1">
 
 <div>
 
@@ -367,6 +524,7 @@ top_idx = np.argmax(similarities)
 print(f"Result: {corpus[top_idx]}")
 ```
 
+
 </div>
 
 </div>
@@ -375,24 +533,24 @@ print(f"Result: {corpus[top_idx]}")
 
 # Challenges and Limitations
 
-<div class="grid grid-cols-2 gap-4 mt-4">
+<div class="grid grid-cols-2 compact-grid mt-1">
 
-<div class="space-y-4">
+<div class="space-y-2">
 
 ## Technical Challenges
 
-<div class="p-3 bg-red-50 border border-red-200 rounded">
-<h4 class="font-bold text-red-700 text-sm">Computational Complexity</h4>
-<ul class="text-xs mt-1">
+<div class="p-2 bg-red-50 border border-red-200 rounded">
+<h4 class="font-bold text-red-700 text-xs">Computational Complexity</h4>
+<ul class="ultra-compact mt-1">
 <li>Quadratic attention complexity O(n²)</li>
 <li>Memory requirements</li>
 <li>Training resources</li>
 </ul>
 </div>
 
-<div class="p-3 bg-orange-50 border border-orange-200 rounded">
-<h4 class="font-bold text-orange-700 text-sm">Representation Quality</h4>
-<ul class="text-xs mt-1">
+<div class="p-2 bg-orange-50 border border-orange-200 rounded">
+<h4 class="font-bold text-orange-700 text-xs">Representation Quality</h4>
+<ul class="ultra-compact mt-1">
 <li>Loss of fine-grained information</li>
 <li>Fixed-size bottleneck</li>
 </ul>
@@ -400,21 +558,21 @@ print(f"Result: {corpus[top_idx]}")
 
 </div>
 
-<div class="space-y-4">
+<div class="space-y-2">
 
 ## Practical Issues
 
-<div class="p-3 bg-blue-50 border border-blue-200 rounded">
-<h4 class="font-bold text-blue-700 text-sm">Domain Adaptation</h4>
-<ul class="text-xs mt-1">
+<div class="p-2 bg-blue-50 border border-blue-200 rounded">
+<h4 class="font-bold text-blue-700 text-xs">Domain Adaptation</h4>
+<ul class="ultra-compact mt-1">
 <li>General models vs. domain-specific</li>
 <li>Transfer learning challenges</li>
 </ul>
 </div>
 
-<div class="p-3 bg-purple-50 border border-purple-200 rounded">
-<h4 class="font-bold text-purple-700 text-sm">Evaluation Metrics</h4>
-<ul class="text-xs mt-1">
+<div class="p-2 bg-purple-50 border border-purple-200 rounded">
+<h4 class="font-bold text-purple-700 text-xs">Evaluation Metrics</h4>
+<ul class="ultra-compact mt-1">
 <li>Semantic Textual Similarity (STS)</li>
 <li>Downstream task performance</li>
 </ul>
@@ -424,7 +582,7 @@ print(f"Result: {corpus[top_idx]}")
 
 </div>
 
-<div class="mt-6 p-3 bg-gray-50 rounded-lg text-center text-sm">
+<div class="mt-2 compact-card bg-gray-50 rounded-lg text-center compact-text">
 <strong>Key Trade-off:</strong> Expressiveness vs. Efficiency vs. Generalizability
 </div>
 
